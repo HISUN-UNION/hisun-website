@@ -1,0 +1,83 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <!-- ========基础设置======== -->
+  <modelVersion>4.0.0</modelVersion><!--必须,指定当前POM模型的版本,对于MAVEN2/3来说它只能4.0.0-->
+  <organization><!--可选，组织信息-->
+    <name>Hunan Hi-sun Union Information Technology Co, Ltd.</name>
+    <url>http://www.hnhi-sun.com/</url>
+  </organization>
+  <groupId>com.hisun</groupId><!--必须,组织名称.groupId,artifactId,version三个元素定义了一个项目的基本坐标(唯一)-->
+  <artifactId>hisun-website</artifactId><!--必须,工件名称-->
+  <version>0.0.1-SNAPSHOT</version><!--必须,工件版本号-->
+  <packaging>war</packaging><!--可选,默认为jar包-->
+  <name>hisun-website</name><!--可选,项目名称(一个相对于坐标更友好的名称)-->
+
+  <!--可选,远程仓库配置 -->
+  <repositories>
+    <repository>
+      <id>spring-maven-repository</id>
+      <name>Spring Framework Maven Release Repository</name>
+      <url>http://maven.springframework.org/release/</url>
+    </repository>
+    <repository>
+      <id>spring-maven-release-remote</id>
+      <name>Spring Framework Maven Release Remote Repository</name>
+      <url>http://repo.spring.io/libs-release-remote/</url>
+    </repository>
+  </repositories>
+
+  <!--可选,自定义属性,目的用于消除重复性,维护方便.相同内容只需在一个地方维护.-->
+  <properties>
+  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  <!--Plugin version properties start-->
+  <maven-resources-plugin.version>2.7</maven-resources-plugin.version>
+  <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
+  <maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
+  <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
+  <maven-site-plugin.version>3.4</maven-site-plugin.version>
+  <maven-war-plugin.version>2.6</maven-war-plugin.version>
+  <maven-jar-plugin.version>2.6</maven-jar-plugin.version>
+  <maven-dependency-plugin.version>2.10</maven-dependency-plugin.version>
+  <jrebel-maven-plugin.version>1.1.5</jrebel-maven-plugin.version>
+  <tomcat7-maven-plugin.version>2.2</tomcat7-maven-plugin.version>
+  <maven-warpath-plugin.version>2.2</maven-warpath-plugin.version>
+  <!-- Plugin version properties end-->
+  </properties>
+
+  <!-- 生命周期及插件配置-->
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+        <includes>
+          <include>**/*</include>
+        </includes>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>${maven-resources-plugin.version}</version>
+        <configuration>
+          <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven-compiler-plugin.version}</version>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-install-plugin</artifactId>
+        <version>${maven-install-plugin.version}</version>
+      </plugin>
+    </plugins>
+  </build>
+</project>
